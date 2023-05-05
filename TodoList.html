@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aquamarine;
+        margin-top: 3rem;
+      }
+      .container {
+        width: 600px;
+        height: 500px;
+        background-color: bisque;
+        border-radius: 10px;
+      }
+      .content {
+        padding: 0.5rem 1rem;
+      }
+      button {
+        margin-top: 0.5rem;
+      }
+      input {
+        width: 100%;
+      }
+      #hasil {
+        padding: 0 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h2>Todo List</h2>
+        <input type="text" id="inputUser" /><br />
+        <button onclick="klik()" id="tambah">ADD</button>
+      </div>
+      <hr />
+      <div id="hasil"></div>
+    </div>
+    <script>
+      let button = document.getElementById("tambah");
+
+      button.addEventListener("click", function () {
+        let hasil = document.getElementById("hasil");
+        let inputan = document.getElementById("inputUser");
+        let pBaru = document.createElement("p");
+        let teks = document.createTextNode(inputan.value);
+        pBaru.appendChild(teks);
+        hasil.appendChild(pBaru);
+        inputan.value = "";
+      });
+      //   atau dengan cara dibawah ini
+      //   function klik() {
+      //     let hasil = document.getElementById("hasil");
+      //     let inputan = document.getElementById("inputUser");
+      //     let pBaru = document.createElement("p");
+      //     let teks = document.createTextNode(inputan.value);
+
+      //     pBaru.appendChild(teks);
+      //     hasil.appendChild(pBaru);
+      //     inputan.value = "";
+      //   }
+    </script>
+  </body>
+</html>

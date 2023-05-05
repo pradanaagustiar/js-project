@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=Count Number, initial-scale=1.0" />
+    <title>Count Number</title>
+  </head>
+  <body>
+    <h2>Count Number</h2>
+    <div id="hasil">0</div>
+    <br />
+    <button id="kurang">Kurangi</button>
+    <button id="reset">Reset</button>
+    <button id="tambah">Tambahkan</button>
+
+    <script>
+      let hasil = document.getElementById("hasil");
+      let kurang = document.getElementById("kurang");
+      let reset = document.getElementById("reset");
+      let tambah = document.getElementById("tambah");
+
+      kurang.addEventListener("click", function () {
+        hasil.innerHTML--;
+      });
+      reset.addEventListener("click", function () {
+        hasil.innerHTML = 0;
+      });
+      tambah.addEventListener("click", function () {
+        hasil.innerHTML++;
+      });
+    </script>
+  </body>
+</html>

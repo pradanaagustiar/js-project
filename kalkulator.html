@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        background: #eaaaaa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .kalkulator {
+        width: 300px;
+        height: 500px;
+        background-color: antiquewhite;
+        border-radius: 5px;
+      }
+      .layar {
+        width: 100%;
+        height: 100px;
+        color: black;
+        padding: 1rem;
+        font-size: 2rem;
+        text-align: right;
+        pointer-events: none;
+        border-radius: 5px;
+      }
+      .button {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px;
+      }
+      button {
+        flex: 0 0 22%;
+        margin: 5px 0;
+        width: 60px;
+        height: 52px;
+        font-size: 24px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .btn-yellow {
+        background: yellow;
+      }
+      .btn-grey {
+        background: grey;
+      }
+      .btn-green {
+        background: green;
+      }
+      .btn-red {
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="kalkulator">
+      <form>
+        <input type="text" class="layar" />
+      </form>
+      <div class="button">
+        <!-- tombol operator -->
+        <button type="button" class="btn btn-yellow" data-num="*">*</button>
+        <button type="button" class="btn btn-yellow" data-num="/">/</button>
+        <button type="button" class="btn btn-yellow" data-num="-">-</button>
+        <button type="button" class="btn btn-yellow" data-num="+">+</button>
+        <!-- tombol angka -->
+        <button type="button" class="btn btn-grey" data-num="9">9</button>
+        <button type="button" class="btn btn-grey" data-num="8">8</button>
+        <button type="button" class="btn btn-grey" data-num="7">7</button>
+        <button type="button" class="btn btn-grey" data-num="6">6</button>
+        <button type="button" class="btn btn-grey" data-num="5">5</button>
+        <button type="button" class="btn btn-grey" data-num="4">4</button>
+        <button type="button" class="btn btn-grey" data-num="3">3</button>
+        <button type="button" class="btn btn-grey" data-num="2">2</button>
+        <button type="button" class="btn btn-grey" data-num="1">1</button>
+        <button type="button" class="btn btn-grey" data-num="0">0</button>
+        <button type="button" class="btn btn-grey" data-num=".">.</button>
+        <!-- sama dengan dan clear -->
+        <button type="button" class="btn-green">=</button>
+        <button type="button" class="btn btn-red">C</button>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        let layar = document.querySelector(".layar");
+        let tombol = document.querySelectorAll(".btn");
+        let samaDengan = document.querySelector(".btn-green");
+        let clear = document.querySelector(".btn-red");
+
+        tombol.forEach(function (button) {
+          button.addEventListener("click", function (e) {
+            let value = e.target.dataset.num;
+            layar.value += value;
+          });
+        });
+
+        samaDengan.addEventListener("click", function (e) {
+          if (layar.value === "") {
+            layar.value = "";
+          } else {
+            let answer = eval(layar.value);
+            layar.value = answer;
+          }
+        });
+
+        clear.addEventListener("click", function (e) {
+          layar.value = "";
+        });
+      })();
+    </script>
+  </body>
+</html>

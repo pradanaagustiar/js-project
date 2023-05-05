@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dark mode</title>
+    <style>
+      #light {
+        background-color: #4da7b0;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 8px;
+      }
+      #dark {
+        background-color: #949c2d;
+        color: rgb(255, 255, 255);
+        border: none;
+        padding: 6px 12px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body id="gantiBg">
+    <div class="tombol">
+      <button id="light">light</button>
+      <button id="dark">dark</button>
+      <p id="teks"></p>
+    </div>
+    <script>
+      let warnaCerah = document.getElementById("light");
+      let warnaGelap = document.getElementById("dark");
+
+      warnaCerah.addEventListener("click", function () {
+        document.getElementById("gantiBg").style.backgroundColor = "#faebd7";
+        document.getElementById("teks").innerHTML = "Light Mode";
+        document.getElementById("teks").style.color = "#949c2d";
+      });
+      warnaGelap.addEventListener("click", function () {
+        document.getElementById("gantiBg").style.backgroundColor = "#454259";
+        document.getElementById("teks").innerHTML = "Dark Mode";
+        document.getElementById("teks").style.color = "#4da7b0";
+      });
+    </script>
+  </body>
+</html>

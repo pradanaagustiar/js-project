@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        height: 300px;
+        width: 500px;
+        background-color: rgb(162, 162, 162);
+        border-radius: 10px;
+      }
+      form {
+        padding: 1rem;
+      }
+      #hasil {
+        padding: 1rem;
+      }
+      button {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="">
+        <label>Masukkan BB anda :</label>
+        <input type="number" id="beratBadan" /><br />
+        <label>Masukkan TB anda :</label>
+        <input type="number" id="tinggiBadan" /><br />
+        <button onclick="klik()">Enter</button>
+      </form>
+      <div id="hasil"></div>
+    </div>
+
+    <script>
+      function klik() {
+        // ambil nilai inputan
+        let bb = document.getElementById("beratBadan").value;
+        let tb = document.getElementById("tinggiBadan").value;
+        // hitung BMI
+        let bmi = bb / (tb * tb);
+        // munculkan hasilnya
+        let hasil = document.getElementById("hasil");
+        hasil.innerHTML = "BMI : " + bmi.toFixed(2);
+
+        // keterangan hasil bmi
+        if (bmi < 18) {
+          hasil.innerHTML += ", Underweight";
+          hasil.style.color = "red";
+        } else if (bmi < 25) {
+          hasil.innerHTML += ", Normal";
+          hasil.style.color = "lightgreen";
+        } else if (bmi < 30) {
+          hasil.innerHTML += ", Overweight";
+          hasil.style.color = "yellow";
+        } else {
+          hasil.innerHTML += ", Obesitas";
+          hasil.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>
